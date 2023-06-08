@@ -1,13 +1,7 @@
 #!/usr/bin/python3
 if __name__ == "__main__":
-    import py_compile
-    import marshal
+    import hidden_4
 
-    py_compile.compile('hidden_4.py')
-    code = open('hidden_4.pyc', 'rb').read()
-    names = []
-    for const in marshal.load(code)['co_consts']:
-        if isinstance(const, str) and not const.startswith('__'):
-            names.append(const)
-    for name in sorted(names):
-        print(name)
+    for word in dir(hidden_4):
+        if i[:2] != "__":
+            print(word)
