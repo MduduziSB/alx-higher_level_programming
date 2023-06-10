@@ -3,5 +3,5 @@ def multiple_returns(sentence):
     if len(sentence):
         new_tuple = len(sentence), sentence[0]
     else:
-        new_tuple = len(sentence),
+        new_tuple = len(sentence), None
     return new_tuple
