@@ -29,7 +29,7 @@ size_t size_of_list(const listint_t *h)
 int is_palindrome(listint_t **head)
 {
 	size_t list_size, j = 0;
-	int arr[20];
+	int arr[2000];
 	listint_t const *ptr = *head;
 
 	list_size = size_of_list(ptr);
