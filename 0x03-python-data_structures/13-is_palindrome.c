@@ -29,18 +29,13 @@ size_t size_of_list(const listint_t *h)
 int is_palindrome(listint_t **head)
 {
 	size_t list_size, j = 0;
-	int *arr;
+	int arr[20];
 	listint_t const *ptr = *head;
 
 	list_size = size_of_list(ptr);
 	if (!ptr || list_size == 1)
 		return (1);
-	arr = malloc(sizeof(int) * (list_size / 2));
-	if (!arr)
-	{
-		printf("Memory allocation error\n");
-		return (0);
-	}
+
 	while (j < list_size / 2)
 	{
 		arr[j] = ptr->n;
@@ -57,7 +52,6 @@ int is_palindrome(listint_t **head)
 		ptr = ptr->next;
 		j--;
 	}
-	free(arr);
 	return (1);
 }
 
