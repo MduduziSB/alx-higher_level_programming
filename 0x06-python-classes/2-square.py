@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Class Square creation"""
 
+
 class Square:
     """Class attributes and methods definitions"""
     def __init__(self, size=0):
