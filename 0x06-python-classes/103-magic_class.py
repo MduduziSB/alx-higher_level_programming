@@ -1,10 +1,12 @@
 #!/usr/bin/python3
+
 import math
 """define MagicClass"""
 
 
 class MagicClass:
     """Defining attributes and methods"""
+
     def __init__(self, radius=0):
         """Initialisation of class attribute"""
         self.__radius = 0
