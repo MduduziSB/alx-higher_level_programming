@@ -1,7 +1,7 @@
 #!/usr/bin/python3
+"""define MagicClass"""
 
 import math
-"""define MagicClass"""
 
 
 class MagicClass:
@@ -14,10 +14,10 @@ class MagicClass:
             raise TypeError('radius must be a number')
         self.__radius = radius
 
+    """Method to compute area"""
     def area(self):
-        """Method to compute area"""
         return (self.__radius ** 2 * math.pi)
 
+    """Method used to compute circumference"""
     def circumference(self):
-        """Metod used to compute circumfurance"""
         return (2 * math.pi * self.__radius)
