@@ -8,12 +8,12 @@ This library is very simple, since it only has one function called
 ::
 
     >>> say_my_name("Mdu", "Harvey")
-    Mdu Harvey
+    My name is Mdu Harvey
 
 ::
 
     >>> say_my_name("Sipho")
-    Sipho 
+    My name is Sipho 
 
 ::
 
