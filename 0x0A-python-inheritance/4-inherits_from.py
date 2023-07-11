@@ -7,6 +7,6 @@ def inherits_from(obj, a_class):
     """Tells whether or not an object is an instance"""
     """or herited from the spacified type"""
 
-    if issubclass(type(obj), a_class):
+    if issubclass(type(obj), a_class) and type(obj) != a_class:
         return True
     return False
