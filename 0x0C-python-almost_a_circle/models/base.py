@@ -77,7 +77,7 @@ class Base:
     @classmethod
     def save_to_file_csv(cls, list_objs):
         """saves to csv file"""
-        filename = cls.__name__ + "CSV"
+        filename = cls.__name__ + ".CSV"
         name = cls.__name__
         with open(filename, "w", newline="") as mycsv:
             if list_objs is None or list_objs == []:
@@ -94,7 +94,7 @@ class Base:
     @classmethod
     def load_from_file_csv(cls):
         """deserializes in CSV"""
-        filename = cls.__name__ + "CSV"
+        filename = cls.__name__ + ".CSV"
         name = cls.__name__
         if not os.path.exists(filename):
             return []
