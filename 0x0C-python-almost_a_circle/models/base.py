@@ -69,7 +69,40 @@ class Base:
         """returns a list of instances"""
         fname = str(cls.__name__) + ".json"
         if os.path.exists(fname):
-            with open(fname, encoding="utf-8") as myFile:
+            with open(fname, "r", encoding="utf-8") as myFile:
                 new_list = Base.from_json_string(myFile.read())
                 return [cls.create(**elem) for elem in new_list]
         return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """saves to csv file"""
+        filename = cls.__name__ + "CSV"
+        name = cls.__name__
+        with open(filename, "w", newline="") as mycsv:
+            if not list_objs:
+                mycsv.write("[]")
+            else:
+                if name == "Rectangle":
+                    fieldnames = ["id", "width", "height", "x", "y"]
+                if name == "Square":
+                    fieldnames = ["id", "size", "x", "y"]
+                thewriter = csv.DictWriter(mycsv, fieldnames=fieldnames)
+                for to_dic in list_objs:
+                    thewriter.writerow(to_dic.to_dictionary())
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """deserializes in CSV"""
+        filename = cls.__name__ + "CSV"
+        name = cls.__name__
+        if not os.path.exists(filename):
+            return []
+        with open(filename, "r", newline="") as mycsv:
+            if name == "Rectangle":
+                fieldnames = ["id", "width", "height", "x", "y"]
+            if name == "Square":
+                fieldnames = ["id", "size", "x", "y"]
+            dic = csv.DictReader(mycsv, fieldnames=fieldnames)
+            dic = [dict([x, int(y)] for x, y in z.items()) for z in dic]
+            return [cls.create(**z) for z in dic]
