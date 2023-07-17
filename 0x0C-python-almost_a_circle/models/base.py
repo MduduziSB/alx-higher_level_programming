@@ -47,7 +47,7 @@ class Base:
         """
         returns the list of the JSON string representation json_string
         """
-        if json_string is None:
+        if json_string is None or json_string == []:
             return "[]"
         return json.loads(json_string)
 
@@ -80,7 +80,7 @@ class Base:
         filename = cls.__name__ + "CSV"
         name = cls.__name__
         with open(filename, "w", newline="") as mycsv:
-            if not list_objs:
+            if list_objs is None or list_objs == []:
                 mycsv.write("[]")
             else:
                 if name == "Rectangle":
