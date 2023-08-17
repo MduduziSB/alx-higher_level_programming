@@ -1,4 +1,4 @@
---- This script lists all shows contained
+-- This script lists all shows contained
 -- In the database hbtn_0d_tvshows
 SELECT ts.title, tsg.genre_id
 FROM tv_shows ts
