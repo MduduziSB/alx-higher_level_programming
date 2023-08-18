@@ -6,6 +6,6 @@ WHERE tv_shows.id NOT IN (
 	SELECT tv_shows.id
 	FROM tv_shows
 	JOIN tv_show_genres tsg ON tv_shows.id = tsg.show_id
-	JOIN tv_genres tg ON tg.id = tgs.genre_id
+	JOIN tv_genres tg ON tg.id = tsg.genre_id
 	WHERE tg.name = 'Comedy')
 ORDER BY tv_shows.title ASC;
