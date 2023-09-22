@@ -9,17 +9,19 @@ if __name__ == "__main__":
     import sys
 
     arg = sys.argv
-    if len(argv) > 3:
-        var = 'mysql+mysqldb://{}:{}@localhost:3306/{}'
-        engine = create_engine(var.format(arg[1], arg[2], arg[2]))
-        Session = sessionmaker(bind=engine)
+    if len(arg) < 4:
+        exit(1)
 
-        Base.metadata.create_all(engine)
+    var = 'mysql+mysqldb://{}:{}@localhost:3306/{}'
+    engine = create_engine(var.format(arg[1], arg[2], arg[2]))
+    Session = sessionmaker(bind=engine)
 
-        session = Session()
+    Base.metadata.create_all(engine)
 
-        states = session.query(State).order_by(State.id).all()
-        for state in states:
-            print("{}: {}".format(state.id, state.name))
+    session = Session()
 
-        session.close()
+    states = session.query(State).order_by(State.id).all()
+    for state in states:
+        print("{}: {}".format(state.id, state.name))
+
+    session.close()
