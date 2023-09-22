@@ -13,7 +13,7 @@ if __name__ == "__main__":
     mycur.execute("""SELECT cities.name FROM cities INNER JOIN states ON
                 cities.state_id=states.id WHERE states.name=%s""", (arg,))
     states = mycur.fetchall()
-    for state in states:
-        print(state)
+    var = list(state[0] for state in states)
+    print(*var, sep(, ))
     mycur.close()
     db.close()
