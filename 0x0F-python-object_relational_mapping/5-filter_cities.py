@@ -14,6 +14,6 @@ if __name__ == "__main__":
                 cities.state_id=states.id WHERE states.name=%s""", (arg,))
     states = mycur.fetchall()
     var = list(state[0] for state in states)
-    print(*var, sep(, ))
+    print(*var, sep=", ")
     mycur.close()
     db.close()
