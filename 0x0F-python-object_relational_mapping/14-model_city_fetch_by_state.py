@@ -19,4 +19,4 @@ if __name__ == "__main__":
     s = (session.query(State.name, City.id, City.name)
          .filter(State.id == City.state_id))
     for r in s:
-        print(r[0] + ":(" + str(r[1]) + ")" + r[2])
+        print(r[0] + ": (" + str(r[1]) + ") " + r[2])
