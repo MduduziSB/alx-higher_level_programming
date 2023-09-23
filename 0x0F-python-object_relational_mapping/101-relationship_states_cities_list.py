@@ -13,6 +13,8 @@ import sys
 
 if __name__ == "__main__":
     arg = sys.argv
+    if len(arg) < 4:
+        exit(1)
     var = 'mysql+mysqldb://{}:{}@localhost:3306/{}'
     engine = create_engine(var.format(arg[1], arg[2], arg[3]))
     Session = sessionmaker(bind=engine)
