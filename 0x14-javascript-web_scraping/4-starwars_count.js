@@ -11,10 +11,12 @@ request(apiUrl, (error, response, body) => {
     console.error('Error:', error);
   }
   const films = JSON.parse(body).results;
-  const url = 'https://swapi-api.alx-tools.com/api/people/';
-  const Wedge_appearances = films.filter(film => {
-    return film.characters.includes(`${url}${characterId}/`);
-  }).length;
+  const Wedge_appearances = films.reduce((count, film) => {
+    if (film.characters.some(character => character.endsWith(`/${characterId}/`))) {
+      return count + 1;
+    }
+    return count;
+  }, 0);
 
   console.log(Wedge_appearances);
 });
